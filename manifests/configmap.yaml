@@ -1,4 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
 metadata:
-  name: app-config
-  annotations:
-    argocd.argoproj.io/sync-wave: "0"
+  name: simple-app-config
+  labels:
+    app: simple-app-argocd
+data:
+  WELCOME_MESSAGE: "Hello from ArgoCD GitOps!"
