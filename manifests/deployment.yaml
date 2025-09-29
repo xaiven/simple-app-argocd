@@ -1,4 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: app-deploy
-  annotations:
-    argocd.argoproj.io/sync-wave: "1"
+  name: simple-app-argocd
+  labels:
+    app: simple-app-argocd
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: simple-app-argocd
+  template:
+    metadata:
+      labels:
+        app: simple-app-argocd
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.25   # <-- Change this to test drift later (e.g., 1.26)
+          ports:
+            - containerPort: 80
+          env:
+            - name: WELCOME_MESSAGE
+              valueFrom:
+                configMapKeyRef:
+                  name: simple-app-config
+                  key: WELCOME_MESSAGE
