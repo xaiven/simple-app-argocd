@@ -1,0 +1,4 @@
+metadata:
+  name: app-config
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
