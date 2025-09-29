@@ -1,0 +1,4 @@
+metadata:
+  name: app-deploy
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
