@@ -4,5 +4,7 @@ metadata:
   name: simple-app-config
   labels:
     app: simple-app-argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
 data:
   WELCOME_MESSAGE: "Hello from ArgoCD GitOps!"
